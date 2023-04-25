@@ -58,3 +58,6 @@ app.use((req, res) => {
 
 // make the public file public so images can be accessed
 app.use(express.static(__dirname + "/public"));
+
+
+
