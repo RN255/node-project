@@ -1,24 +1,29 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
+  <%- include('./partials/head.ejs') %>
+
   <body>
     <%- include('./partials/nav.ejs') %>
 
-    <h1>Hi there!</h1>
-    <p>This is the CREATE page</p>
+    <div class="container my-5">
+      <h2>Write a Comment</h2>
+      <form action="/blogs" method="POST">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title:</label>
+          <input type="text" class="form-control" id="title" name="title" />
+        </div>
+        <div class="mb-3">
+          <label for="body" class="form-label">Comment:</label>
+          <textarea
+            name="body"
+            class="form-control"
+            id="body"
+            cols="20"
+            rows="5"
+          ></textarea>
+        </div>
 
-    <form action="/blogs" method="POST">
-      <label for="title">title</label>
-      <input type="text" id="title" name="title" />
-
-      <label for="body">blog body:</label>
-      <textarea name="body" id="body" cols="30" rows="10"></textarea>
-
-      <button>submit</button>
-    </form>
+        <button class="btn btn-primary">Post comment</button>
+      </form>
+    </div>
   </body>
 </html>

@@ -1,0 +1,27 @@
+/* all pages  */
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+/* index page  */
+
+.index a {
+  text-decoration: none;
+}
+
+.index h3 {
+  color: #000;
+}
+
+.index p {
+  color: #898989;
+}

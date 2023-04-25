@@ -55,3 +55,6 @@ app.use((req, res) => {
   // res.sendFile("./views/404.html", { root: __dirname }); // this was used before ejs
   res.render("404");
 });
+
+// make the public file public so images can be accessed
+app.use(express.static(__dirname + "/public"));
