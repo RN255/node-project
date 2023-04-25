@@ -26,21 +26,21 @@ app.use((req, res, next) => {
 });
 
 // mongoose and mongo sandbox routes
-app.get("/add-blog", (req, res) => {
-  const blog = new Blog({
-    title: "blog2",
-    body: "this is the content",
-  });
+// app.get("/add-blog", (req, res) => {
+//   const blog = new Comment({
+//     title: "blog2",
+//     body: "this is the content",
+//   });
 
-  blog
-    .save()
-    .then((result) => {
-      res.send(result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
+//   blog
+//     .save()
+//     .then((result) => {
+//       res.send(result);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// });
 
 // to redirect
 app.get("/about-it", (req, res) => {

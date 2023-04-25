@@ -1,10 +1,10 @@
-const Blog = require("../models/blog");
+const Comment = require("../models/blog");
 
 const blog_index = (req, res) => {
-  Blog.find()
+  Comment.find()
     .sort({ createdAt: -1 })
     .then((result) => {
-        res.render('index', {blogs: result})
+        res.render('index', {comments: result})
     })
     .catch((err) => {
       console.log(err);
@@ -13,9 +13,9 @@ const blog_index = (req, res) => {
 
 const blog_details = (req, res) => {
   const id = req.params.id;
-  Blog.findById(id)
+  Comment.findById(id)
     .then((result) => {
-      res.render("details", { blog: result });
+      res.render("details", { comment: result });
     })
     .catch((err) => {
       console.log(err);
@@ -27,9 +27,9 @@ const blog_create_get = (req, res) => {
 };
 
 const blog_create_post = (req, res) => {
-  const blog = new Blog(req.body); //'body' is the object from above
+  const comment = new Comment(req.body); //'body' is the object from above
 
-  blog
+  comment
     .save()
     .then((result) => {
       res.redirect("./blogs");
@@ -42,7 +42,7 @@ const blog_create_post = (req, res) => {
 const blog_delete = (req, res) => {
   const id = req.params.id;
 
-  Blog.findByIdAndDelete(id)
+  Comment.findByIdAndDelete(id)
     .then((result) => {
       res.json({ redirect: "/blogs" });
       console.log("I ran");

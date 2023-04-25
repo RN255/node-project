@@ -1,7 +1,8 @@
+const { isNumber } = require("lodash");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const blogSchema = new Schema(
+const commentSchema = new Schema(
   {
     title: {
       type: String,
@@ -11,10 +12,22 @@ const blogSchema = new Schema(
       type: String,
       required: true,
     },
+    Hearts: {
+      type: Number,
+      default: 0,
+    },
+    upVotes: {
+      type: Number,
+      default: 0,
+    },
+    downVotes: {
+      type: Number,
+      default: 0,
+    },
   },
   { timestamps: true },
-  { collection: "blogs" } //creates collection if not already there
+  { collection: "comments" } //creates collection if not already there
 );
 
-const Blog = mongoose.model("blog", blogSchema); //use singular of collection
-module.exports = Blog;
+const Comment = mongoose.model("comment", commentSchema); //use singular of collection
+module.exports = Comment;
